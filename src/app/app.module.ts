@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { TodoDataService } from  './todo-data.service';
+import {ToastyModule} from "ng2-toasty/index";
 
 @NgModule({
   declarations: [
@@ -12,9 +14,12 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ToastyModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    TodoDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
