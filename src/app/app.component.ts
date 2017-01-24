@@ -19,20 +19,20 @@ export class AppComponent {
     this.todoDataService = todoDataService;
   }
 
-  addTodo() {
+  addTodo(): void {
     this.todoDataService.addTodo(this.newTodo);
     this.newTodo = new Todo();
   }
 
-  toggleTodoComplete(todo: Todo) {
+  toggleTodoComplete(todo: Todo): void {
     this.todoDataService.toggleTodoComplete(todo);
   }
 
-  removeTodo(todo: Todo) {
+  removeTodo(todo: Todo): void {
     this.todoDataService.deleteTodoById(todo.id);
   }
 
-  get todos() {
+  get todos(): Todo[] {
     return this.todoDataService.getAllTodos();
   }
 
