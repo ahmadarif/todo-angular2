@@ -51,7 +51,11 @@ export class TodoDataService {
     if (todo) {
       Object.assign(todo, value);
 
-      this.showToasty("Todo successfully changed!", true);
+      if (todo.complete) {
+        this.showToasty("Todo changed to complete!", true);
+      } else {
+        this.showToasty("Todo changed to not complete!", true);
+      }
     } else {
       this.showToasty("Todo not successfully changed!", false);
     }
@@ -71,11 +75,12 @@ export class TodoDataService {
     }
   }
 
-  // togle todo complete
+  // toggle todo complete
   toggleTodoComplete(todo: Todo): void{
     this.updateTodoById(todo.id, {complete: !todo.complete});
   }
 
+  // toasty config
   showToasty(message: string, isSuccess: boolean): void {
     let toastOptions: ToastOptions = {
       title: "Todos with Angular 2",
